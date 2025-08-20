@@ -31,6 +31,10 @@
   margin-bottom: 2.5rem;
   text-align: center;
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-title p {
@@ -46,10 +50,19 @@
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--primary-color, #007bff);
-  display: block;
+  display: inline-block;
   line-height: 1.2;
   font-family: 'Poppins', sans-serif;
+  width: 420px;
+  min-height: 3rem;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
 }
+
+
 
 .home-description {
   font-size: 1.125rem;
@@ -217,6 +230,8 @@
   
   .home-title span {
     font-size: 2.25rem;
+    min-height: 2.5rem;
+    width: 380px;
   }
   
   .home-description {
@@ -258,6 +273,8 @@
   
   .home-title span {
     font-size: 2rem;
+    min-height: 2.25rem;
+    width: 320px;
   }
   
   .home-description {
@@ -297,6 +314,8 @@
   
   .home-title span {
     font-size: 1.75rem;
+    min-height: 2rem;
+    width: 280px;
   }
   
   .home-description {

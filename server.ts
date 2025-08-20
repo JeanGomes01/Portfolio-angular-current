@@ -29,6 +29,12 @@ export function app(): express.Express {
   server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
+    // Set timeout for rendering
+    const renderTimeout = setTimeout(() => {
+      console.error('Rendering timeout for:', originalUrl);
+      res.status(500).send('Rendering timeout');
+    }, 60000); // 60 seconds timeout
+
     commonEngine
       .render({
         bootstrap: AppServerModule,
@@ -37,8 +43,15 @@ export function app(): express.Express {
         publicPath: browserDistFolder,
         providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
       })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+      .then((html) => {
+        clearTimeout(renderTimeout);
+        res.send(html);
+      })
+      .catch((err) => {
+        clearTimeout(renderTimeout);
+        console.error('Rendering error for:', originalUrl, err);
+        next(err);
+      });
   });
 
   return server;

@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-particles-background',
@@ -12,29 +13,45 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy, AfterVie
   private particles: Array<{x: number, y: number, vx: number, vy: number, size: number, opacity: number}> = [];
   private canvas: HTMLCanvasElement | null = null;
   private ctx: CanvasRenderingContext2D | null = null;
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   @HostListener('window:resize')
   onResize(): void {
-    this.resizeCanvas();
-    this.repositionParticles();
+    if (this.isBrowser) {
+      this.resizeCanvas();
+      this.repositionParticles();
+    }
   }
 
   ngOnInit(): void {
-    this.initParticles();
+    if (this.isBrowser) {
+      this.initParticles();
+    }
   }
 
   ngAfterViewInit(): void {
-    this.setupCanvas();
-    this.startAnimation();
+    if (this.isBrowser) {
+      // Pequeno delay para garantir que a página carregou
+      setTimeout(() => {
+        this.setupCanvas();
+        this.startAnimation();
+      }, 500);
+    }
   }
 
   ngOnDestroy(): void {
-    if (this.animationId) {
+    if (this.animationId && this.isBrowser) {
       cancelAnimationFrame(this.animationId);
     }
   }
 
   private setupCanvas(): void {
+    if (!this.isBrowser) return;
+    
     const canvasElement = this.particlesContainer.nativeElement;
     if (canvasElement instanceof HTMLCanvasElement) {
       this.canvas = canvasElement;
@@ -51,18 +68,26 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy, AfterVie
   }
 
   private resizeCanvas(): void {
-    if (!this.canvas) return;
+    if (!this.canvas || !this.isBrowser) return;
     
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    const width = window?.innerWidth || 1200;
+    const height = window?.innerHeight || 800;
+    
+    this.canvas.width = width;
+    this.canvas.height = height;
   }
 
   private initParticles(): void {
+    if (!this.isBrowser) return;
+    
+    const width = window?.innerWidth || 1200;
+    const height = window?.innerHeight || 800;
+    
     // Criar partículas simples
     for (let i = 0; i < 350; i++) {
       this.particles.push({
-        x: Math.random() * (window.innerWidth || 1200),
-        y: Math.random() * (window.innerHeight || 800),
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         size: Math.random() * 3 + 1,
@@ -72,7 +97,7 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy, AfterVie
   }
 
   private repositionParticles(): void {
-    if (!this.canvas) return;
+    if (!this.canvas || !this.isBrowser) return;
     
     const canvas = this.canvas;
     this.particles.forEach(particle => {
@@ -82,7 +107,7 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy, AfterVie
   }
 
   private startAnimation(): void {
-    if (!this.ctx || !this.canvas) return;
+    if (!this.ctx || !this.canvas || !this.isBrowser) return;
 
     const animate = () => {
       if (!this.ctx || !this.canvas) return;
