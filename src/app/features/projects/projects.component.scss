@@ -7,10 +7,19 @@
 
 .page-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 3rem;
-  color: #ffffff;
   font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  
+  .title-part {
+    color: #ffffff;
+    margin-right: 0.5rem;
+  }
+  
+  .title-highlight {
+    color: #8b5cf6;
+  }
 }
 
 .projects-grid {

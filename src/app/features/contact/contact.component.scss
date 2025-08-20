@@ -22,12 +22,14 @@ $transition: all 0.3s ease;
 .main-title {
   font-size: 3.5rem;
   font-weight: 700;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   margin-bottom: 4rem;
   margin-top: 2rem;
   
   .title-part {
     color: $text-white;
+    margin-right: 0.5rem;
   }
   
   .title-highlight {

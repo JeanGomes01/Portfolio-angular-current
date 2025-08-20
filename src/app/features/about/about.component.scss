@@ -14,12 +14,18 @@
   .about-title {
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 1rem;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    .title-part {
+      color: #ffffff;
+      margin-right: 0.5rem;
+    }
+    
+    .title-highlight {
+      color: #8b5cf6;
+    }
   }
 
   .about-subtitle {
