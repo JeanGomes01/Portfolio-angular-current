@@ -1,0 +1,141 @@
+.projects-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: white;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.project-image {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  
+  // Estilos para as imagens reais
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+  
+  // Efeito de zoom sutil no hover da imagem
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 1rem;
+  
+  // Texto aparece no hover
+  .project-card:hover & {
+    opacity: 1;
+  }
+}
+
+// Placeholder backgrounds para cada projeto
+.portfolio-placeholder {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.animals-placeholder {
+  background: linear-gradient(135deg, #f5f5dc, #e8e8d0);
+  color: #333;
+}
+
+.medical-placeholder {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #1976d2;
+}
+
+.todo-placeholder {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  color: #7b1fa2;
+}
+
+.social-placeholder {
+  background: linear-gradient(135deg, #2d2d2d, #404040);
+}
+
+.dashboard-placeholder {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
+  
+  .projects-container {
+    padding: 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .project-image {
+    height: 250px;
+  }
+}
