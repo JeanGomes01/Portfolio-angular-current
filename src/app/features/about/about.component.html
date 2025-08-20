@@ -66,88 +66,233 @@
     </div>
 
     <div class="about-section">
-      <h2 class="section-title">Experiência</h2>
-      <div class="experience-timeline">
-        <div class="experience-item">
-          <div class="experience-year">2023 - Presente</div>
-          <div class="experience-content">
-            <h3>Desenvolvedor Full Stack</h3>
-            <p>Desenvolvimento de aplicações web modernas usando Angular, Node.js e tecnologias relacionadas.</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-carousel">
+        <!-- Fallback CSS Carousel -->
+        <div class="skills-fallback">
+          <div class="skill-card">
+            <div class="skill-icon js-icon">JS</div>
+            <span class="skill-name">Javascript</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon ts-icon">TS</div>
+            <span class="skill-name">TypeScript</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon java-icon">☕</div>
+            <span class="skill-name">Java</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon node-icon">JS</div>
+            <span class="skill-name">Node JS</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon angular-icon">A</div>
+            <span class="skill-name">Angular</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon python-icon">🐍</div>
+            <span class="skill-name">Python</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon html-icon">&lt;/&gt;</div>
+            <span class="skill-name">HTML</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon css-icon">CSS</div>
+            <span class="skill-name">CSS</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon react-icon">⚛</div>
+            <span class="skill-name">React</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon sql-icon">SQL</div>
+            <span class="skill-name">SQL</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon mongodb-icon">M</div>
+            <span class="skill-name">MongoDB</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon git-icon">Git</div>
+            <span class="skill-name">Git</span>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon figma-icon">F</div>
+            <span class="skill-name">Figma</span>
           </div>
         </div>
-        <div class="experience-item">
-          <div class="experience-year">2022 - 2023</div>
-          <div class="experience-content">
-            <h3>Desenvolvedor Frontend</h3>
-            <p>Foco em desenvolvimento de interfaces responsivas e experiências de usuário excepcionais.</p>
+        
+        <!-- Swiper Container (hidden until working) -->
+        <swiper-container #swiperContainer class="swiper-hidden">
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon js-icon">JS</div>
+              <span class="skill-name">Javascript</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon ts-icon">TS</div>
+              <span class="skill-name">TypeScript</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon java-icon">☕</div>
+              <span class="skill-name">Java</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon node-icon">JS</div>
+              <span class="skill-name">Node JS</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon angular-icon">A</div>
+              <span class="skill-name">Angular</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon python-icon">🐍</div>
+              <span class="skill-name">Python</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon html-icon">&lt;/&gt;</div>
+              <span class="skill-name">HTML</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon css-icon">CSS</div>
+              <span class="skill-name">CSS</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon react-icon">⚛</div>
+              <span class="skill-name">React</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon sql-icon">SQL</div>
+              <span class="skill-name">SQL</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon mongodb-icon">M</div>
+              <span class="skill-name">MongoDB</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon git-icon">Git</div>
+              <span class="skill-name">Git</span>
+            </div>
+          </swiper-slide>
+          
+          <swiper-slide>
+            <div class="skill-card">
+              <div class="skill-icon figma-icon">F</div>
+              <span class="skill-name">Figma</span>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="experience-education-container">
+        <div class="experience-column">
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2021 - 2024</div>
+              <h3>Data IT Project Assistant at — EY (Ernst Young)</h3>
+              <p>I worked for almost 3 years as an IT project assistant with data analysis using ETL process with data and database manager such as SQL Server</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024 - (present)</div>
+              <h3>Software Developer at — RIO Analytics</h3>
+              <p>Working as a front-end developer focused on maintaining and improving the platform's codebase, fixing bugs, and integrating front-end with backend APIs. I implement interactive and responsive data visualizations using Angular, applying best practices for performance optimization and component reusability</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="education-column">
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2020</div>
+              <h3>Full Stack Programming — Recode Pro</h3>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2021</div>
+              <h3>Computer technician — Institute Federal of Education, Science and Technology of Rio de Janeiro (IFRJ)</h3>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024</div>
+              <h3>Systems Development Analysis — Estacio University</h3>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="about-section">
-      <h2 class="section-title">Habilidades Técnicas</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Angular</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3/SCSS</span>
-            <span class="skill-tag">JavaScript</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">MongoDB</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Ferramentas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Postman</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-section">
-      <h2 class="section-title">Educação</h2>
-      <div class="education-item">
-        <h3>Bacharelado em Ciência da Computação</h3>
-        <p>Universidade Federal - 2018-2022</p>
-        <p>Foco em desenvolvimento de software e arquitetura de sistemas.</p>
-      </div>
-    </div>
-
-    <div class="about-section">
-      <h2 class="section-title">Interesses</h2>
-      <div class="interests-grid">
-        <div class="interest-item">
-          <span class="interest-icon">💻</span>
-          <span>Desenvolvimento Web</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">📱</span>
-          <span>Aplicações Mobile</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">☁️</span>
-          <span>Cloud Computing</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">🤖</span>
-          <span>Inteligência Artificial</span>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </div>
