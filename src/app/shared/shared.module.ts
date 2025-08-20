@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ThemeToggleComponent } from './components/theme-toggle';
 import { ParticlesBackgroundComponent } from './components/particles-background';
+import { NavigationComponent } from './components/navigation';
 
 @NgModule({
   declarations: [
     ThemeToggleComponent,
-    ParticlesBackgroundComponent
+    ParticlesBackgroundComponent,
+    NavigationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     ThemeToggleComponent,
-    ParticlesBackgroundComponent
+    ParticlesBackgroundComponent,
+    NavigationComponent
   ]
 })
 export class SharedModule { }
