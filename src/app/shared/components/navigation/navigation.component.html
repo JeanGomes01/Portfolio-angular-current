@@ -1,9 +1,10 @@
 <nav class="navigation">
+  <!-- Menu desktop com ícones verticais -->
   <div class="nav-container">
     <div class="nav-menu">
       <ul class="nav-list">
         <li class="nav-item">
-          <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMenu()" title="Home">
+          <a routerLink="/home" routerLinkActive="active" class="nav-link" title="Home">
             <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               <polyline points="9,22 9,12 15,12 15,22"></polyline>
@@ -11,7 +12,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="closeMenu()" title="About">
+          <a routerLink="/about" routerLinkActive="active" class="nav-link" title="About">
             <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
@@ -19,7 +20,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/projects" routerLinkActive="active" class="nav-link" (click)="closeMenu()" title="Projects">
+          <a routerLink="/projects" routerLinkActive="active" class="nav-link" title="Projects">
             <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
@@ -28,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="closeMenu()" title="Contact">
+          <a routerLink="/contact" routerLinkActive="active" class="nav-link" title="Contact">
             <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
@@ -37,9 +38,72 @@
         </li>
       </ul>
     </div>
+  </div>
 
-    <div class="nav-toggle" (click)="toggleMenu()">
-      <span class="hamburger" [class.active]="isMenuOpen"></span>
+  <!-- Botão hambúrguer para abrir o menu responsivo -->
+  <div class="nav-toggle" (click)="toggleMenu()">
+    <div class="hamburger" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
+
+  <!-- Menu lateral escuro responsivo -->
+  <div class="nav-menu responsive" [class.active]="isMenuOpen">
+    <!-- Botão X para fechar -->
+    <button class="nav-close" (click)="closeMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Lista de navegação responsiva -->
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+          </svg>
+          <span class="nav-text">Home</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="nav-text">About</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a routerLink="/projects" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span class="nav-text">Portfolio</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span class="nav-text">Contact</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Overlay para fechar o menu responsivo -->
+  <div class="nav-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
 </nav>
