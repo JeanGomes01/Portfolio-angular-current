@@ -1,1 +1,46 @@
-<p>project-modal works!</p>
+<div class="modal-overlay" (click)="onBackdropClick($event)">
+  <div class="modal-container">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h2 class="modal-title">{{ project.title }}</h2>
+      <button class="close-button" (click)="onCloseModal()">
+        <span class="close-icon">×</span>
+      </button>
+    </div>
+
+    <!-- Project Details Section -->
+    <div class="project-details">
+      <div class="project-info">
+        <div class="info-item">
+          <span class="info-label">Project:</span>
+          <span class="info-value">{{ project.description }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Technologies:</span>
+          <span class="info-value">{{ project.technologies.join(', ') }}</span>
+        </div>
+      </div>
+      <div class="project-links">
+        <div class="info-item" *ngIf="project.client">
+          <span class="info-label">Client:</span>
+          <span class="info-value">{{ project.client }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Preview:</span>
+          <a [href]="project.link" target="_blank" class="info-link">{{ project.link }}</a>
+        </div>
+        <div class="info-item" *ngIf="project.github">
+          <span class="info-label">GitHub:</span>
+          <a [href]="project.github" target="_blank" class="info-link">{{ project.github }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Preview Section -->
+    <div class="project-preview">
+      <div class="preview-image">
+        <img [src]="project.image" [alt]="project.title">
+      </div>
+    </div>
+  </div>
+</div>
