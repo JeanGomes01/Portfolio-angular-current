@@ -9,7 +9,7 @@ $transition: all 0.3s ease;
   min-height: 100vh;
   background-color: var(--bg-primary);
   color: var(--text-color);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 2rem;
 }
 
@@ -17,16 +17,16 @@ $transition: all 0.3s ease;
 .main-title {
   font-size: 3.5rem;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   margin-bottom: 4rem;
   margin-top: 2rem;
-  
+
   .title-part {
     color: var(--text-color);
     margin-right: 0.5rem;
   }
-  
+
   .title-highlight {
     color: var(--accent-color);
   }
@@ -35,10 +35,18 @@ $transition: all 0.3s ease;
 // Content Container - Para as duas seções
 .content-container {
   display: flex;
-  gap: 3rem;
-  max-width: 1400px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px; // reduzir para deixar o layout mais compacto
+  gap: 2rem;
   margin: 0 auto;
   width: 100%;
+}
+
+.left-section,
+.right-section {
+  flex: 1; // mantém proporcionalidade
+  min-width: 300px; // evita que encolham demais
 }
 
 // Left Section
@@ -48,6 +56,8 @@ $transition: all 0.3s ease;
   flex-direction: column;
   gap: 1rem;
   position: relative;
+  align-items: flex-start; // alinha à esquerda
+  text-align: left; // alinha o texto à esquerda
 }
 
 // Top Controls
@@ -69,12 +79,12 @@ $transition: all 0.3s ease;
   align-items: center;
   justify-content: center;
   transition: $transition;
-  
+
   &:hover {
     background-color: var(--card-bg);
     transform: translateY(-2px);
   }
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -84,6 +94,7 @@ $transition: all 0.3s ease;
 // Don't be Shy Section
 .shy-section {
   margin-top: 0;
+  text-align: left; // alinha o texto à esquerda
 }
 
 .shy-title {
@@ -106,6 +117,7 @@ $transition: all 0.3s ease;
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 2rem;
+  align-items: flex-start; // alinha os itens de contato à esquerda
 }
 
 .contact-item {
@@ -123,7 +135,7 @@ $transition: all 0.3s ease;
   align-items: center;
   justify-content: center;
   color: var(--text-color);
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -153,6 +165,7 @@ $transition: all 0.3s ease;
   gap: 1rem;
   margin-top: auto;
   padding-bottom: 1rem;
+  justify-content: flex-start; // alinha os ícones sociais à esquerda
 }
 
 .social-icon {
@@ -168,22 +181,27 @@ $transition: all 0.3s ease;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  
+
   // Efeito de brilho que se move
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
     transition: left 0.6s;
   }
-  
+
   // Efeito de pulso
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -194,35 +212,35 @@ $transition: all 0.3s ease;
     transform: translate(-50%, -50%);
     transition: all 0.6s ease;
   }
-  
+
   &:hover {
     background-color: var(--primary-color);
     transform: translateY(-8px) scale(1.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    
+
     // Ativa o brilho
     &::before {
       left: 100%;
     }
-    
+
     // Ativa o pulso
     &::after {
       width: 100%;
       height: 100%;
     }
-    
+
     // Animação do ícone
     svg {
       transform: scale(1.2) rotate(5deg);
       filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
     }
   }
-  
+
   // Animação de entrada suave
   &:active {
     transform: translateY(-4px) scale(1.05);
   }
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -230,23 +248,30 @@ $transition: all 0.3s ease;
     position: relative;
     z-index: 1;
   }
-  
+
   // Animações específicas para cada ícone
   &[title="Instagram"]:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
     animation: instagram-shake 0.6s ease-in-out;
   }
-  
+
   &[title="LinkedIn"]:hover {
     background-color: #0077b5;
     animation: linkedin-bounce 0.6s ease-in-out;
   }
-  
+
   &[title="GitHub"]:hover {
     background-color: #333;
     animation: github-spin 0.8s ease-in-out;
   }
-  
+
   &[title="WhatsApp"]:hover {
     background-color: #25d366;
     animation: whatsapp-wiggle 0.6s ease-in-out;
@@ -258,23 +283,27 @@ $transition: all 0.3s ease;
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
+  align-items: center; // centraliza horizontalmente
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0; // remove gap fixo lateral
 }
 
 // Contact Form
 .contact-form {
   width: 100%;
-  max-width: 600px;
+  max-width: 600px; // volta ao tamanho original
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin: 0; // remove centralização
+  padding-right: 4rem; // adiciona padding para evitar sobreposição com o menu
 }
 
 .form-row {
   display: flex;
   gap: 1rem;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -283,6 +312,8 @@ $transition: all 0.3s ease;
 .form-input,
 .form-textarea {
   flex: 1;
+  min-width: 0; // 🔥 impede de estourar o container
+  max-width: 100%; // 🔥 garante que não passe da largura do form
   padding: 1rem;
   border: none;
   border-radius: $border-radius;
@@ -290,11 +321,11 @@ $transition: all 0.3s ease;
   color: var(--text-color);
   font-size: 1rem;
   transition: $transition;
-  
+
   &::placeholder {
     color: var(--text-secondary);
   }
-  
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--primary-color);
@@ -323,10 +354,10 @@ $transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   min-height: 60px;
-  
+
   // Efeito que preenche o background
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -337,55 +368,55 @@ $transition: all 0.3s ease;
     z-index: 1;
     border-radius: 50px;
   }
-  
+
   &:hover {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-    
+
     // Preenche o background da direita para esquerda
     &::before {
       width: 100%;
     }
-    
+
     // Animação do ícone - move junto com o efeito da direita para esquerda
     .btn-icon {
       transform: translateX(calc(-100% + 60px)) scale(1.1);
       background-color: rgba(255, 255, 255, 0.2);
-      
+
       svg {
         transform: rotate(15deg);
         color: white;
       }
     }
-    
+
     .btn-text {
       color: white;
     }
   }
-  
+
   &:active {
     transform: translateY(-1px);
   }
-  
+
   // Efeito quando o mouse sai - retorna da esquerda para direita
   &:not(:hover)::before {
     width: 0;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   // Ícone retorna à posição original
   &:not(:hover) .btn-icon {
     transform: translateX(0) scale(1);
     background-color: var(--primary-color);
-    
+
     svg {
       transform: rotate(0deg);
       color: white;
     }
   }
-  
+
   .btn-text {
     color: var(--text-secondary);
     font-weight: 600;
@@ -394,7 +425,7 @@ $transition: all 0.3s ease;
     flex: 1;
     text-align: center;
   }
-  
+
   .btn-icon {
     width: 56px;
     height: 56px;
@@ -407,7 +438,7 @@ $transition: all 0.3s ease;
     position: relative;
     z-index: 2;
     margin: 2px;
-    
+
     svg {
       width: 20px;
       height: 20px;
@@ -439,16 +470,16 @@ $transition: all 0.3s ease;
   color: var(--text-color);
   text-decoration: none;
   transition: $transition;
-  
+
   &:hover {
     background-color: var(--primary-color);
     transform: translateX(-5px);
   }
-  
+
   &.active {
     background-color: var(--primary-color);
   }
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -458,10 +489,25 @@ $transition: all 0.3s ease;
 // Responsive Design
 @media (max-width: 1024px) {
   .content-container {
-    flex-direction: column;
+    flex-direction: column; // coloca em colunas a partir de 1024px
     gap: 2rem;
+    align-items: center; // centraliza o conteúdo
   }
-  
+
+  .left-section {
+    order: 1; // "Don't be Shy" primeiro
+    width: 100%;
+    max-width: 600px;
+    align-items: flex-start; // alinha à esquerda
+    text-align: left; // alinha o texto à esquerda
+  }
+
+  .right-section {
+    order: 2; // formulário por último
+    width: 100%;
+    max-width: 600px;
+  }
+
   .right-nav {
     position: static;
     flex-direction: row;
@@ -469,14 +515,26 @@ $transition: all 0.3s ease;
     margin-top: 2rem;
     transform: none;
   }
-  
+
   .main-title {
     font-size: 3rem;
     margin-bottom: 3rem;
   }
-  
+
   .shy-title {
     font-size: 2rem;
+  }
+
+  // Formulário em colunas para telas menores
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  // Ajuste para quando o DevTools está aberto (largura reduzida)
+  .contact-form {
+    padding-right: 5rem; // mais padding quando a tela fica menor
+    margin: 0 auto; // centraliza o formulário
   }
 }
 
@@ -484,46 +542,102 @@ $transition: all 0.3s ease;
   .contact-container {
     padding: 1rem;
   }
-  
+
   .main-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }
-  
+
   .shy-title {
     font-size: 1.75rem;
   }
-  
+
   .form-row {
     flex-direction: column;
   }
-  
+
   .content-container {
+    flex-direction: column; // coloca em colunas apenas em telas muito pequenas
     gap: 1.5rem;
+    align-items: center;
+  }
+
+  .left-section {
+    order: 1; // "Don't be Shy" primeiro
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-section {
+    order: 2; // formulário por último
+    width: 100%;
+    max-width: 600px;
+  }
+
+  // Ajuste adicional para telas muito estreitas (DevTools aberto)
+  .contact-form {
+    padding-right: 6rem; // ainda mais padding para telas muito estreitas
+    margin: 0 auto; // centraliza o formulário
+  }
+}
+
+// Media query específica para quando o DevTools está aberto (telas muito estreitas)
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .contact-form {
+    padding-right: 4rem; // padding intermediário para telas médias
   }
 }
 
 // Animações específicas para cada ícone social
 @keyframes instagram-shake {
-  0%, 100% { transform: translateY(-8px) scale(1.1) rotate(0deg); }
-  25% { transform: translateY(-8px) scale(1.1) rotate(-3deg); }
-  75% { transform: translateY(-8px) scale(1.1) rotate(3deg); }
+  0%,
+  100% {
+    transform: translateY(-8px) scale(1.1) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.1) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-8px) scale(1.1) rotate(3deg);
+  }
 }
 
 @keyframes linkedin-bounce {
-  0%, 100% { transform: translateY(-8px) scale(1.1); }
-  50% { transform: translateY(-12px) scale(1.15); }
+  0%,
+  100% {
+    transform: translateY(-8px) scale(1.1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.15);
+  }
 }
 
 @keyframes github-spin {
-  0% { transform: translateY(-8px) scale(1.1) rotate(0deg); }
-  50% { transform: translateY(-8px) scale(1.1) rotate(180deg); }
-  100% { transform: translateY(-8px) scale(1.1) rotate(360deg); }
+  0% {
+    transform: translateY(-8px) scale(1.1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.1) rotate(180deg);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.1) rotate(360deg);
+  }
 }
 
 @keyframes whatsapp-wiggle {
-  0%, 100% { transform: translateY(-8px) scale(1.1) rotate(0deg); }
-  25% { transform: translateY(-8px) scale(1.1) rotate(-5deg); }
-  50% { transform: translateY(-8px) scale(1.1) rotate(5deg); }
-  75% { transform: translateY(-8px) scale(1.1) rotate(-3deg); }
+  0%,
+  100% {
+    transform: translateY(-8px) scale(1.1) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.1) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.1) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-8px) scale(1.1) rotate(-3deg);
+  }
 }
