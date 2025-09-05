@@ -10,13 +10,13 @@
   font-size: 3.5rem;
   margin-bottom: 3rem;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  
+  font-family: "Poppins", sans-serif;
+
   .title-part {
     color: var(--text-color);
     margin-right: 0.5rem;
   }
-  
+
   .title-highlight {
     color: var(--accent-color);
   }
@@ -36,11 +36,11 @@
   border-radius: 16px;
   overflow: hidden;
   border: 2px solid var(--accent-color);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 5px 5px 15px var(--accent-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   cursor: pointer;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
@@ -55,7 +55,7 @@
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  
+
   // Estilos para as imagens reais
   img {
     width: 100%;
@@ -64,7 +64,7 @@
     object-position: center;
     transition: transform 0.3s ease;
   }
-  
+
   // Efeito de zoom sutil no hover da imagem
   &:hover img {
     transform: scale(1.05);
@@ -88,7 +88,7 @@
   transition: opacity 0.3s ease;
   text-align: center;
   padding: 1rem;
-  
+
   // Texto aparece no hover
   .project-card:hover & {
     opacity: 0.9;
@@ -136,15 +136,15 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
   }
-  
+
   .projects-container {
     padding: 1rem;
   }
-  
+
   .page-title {
     font-size: 2rem;
   }
-  
+
   .project-image {
     height: 250px;
   }
