@@ -56,13 +56,24 @@ export class ThemeService {
       try {
         localStorage.setItem('theme', theme);
         
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark-theme');
-          document.documentElement.classList.remove('light-theme');
-        } else {
-          document.documentElement.classList.add('light-theme');
-          document.documentElement.classList.remove('dark-theme');
-        }
+        // Add transition class for smooth theme change
+        document.documentElement.classList.add('theme-changing');
+        
+        // Small delay to ensure the transition class is applied
+        setTimeout(() => {
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            document.documentElement.classList.remove('light-theme');
+          } else {
+            document.documentElement.classList.add('light-theme');
+            document.documentElement.classList.remove('dark-theme');
+          }
+          
+          // Remove transition class after theme change
+          setTimeout(() => {
+            document.documentElement.classList.remove('theme-changing');
+          }, 50);
+        }, 10);
       } catch (error) {
         console.warn('Error setting theme:', error);
       }

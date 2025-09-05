@@ -1,46 +1,119 @@
-<button 
-  class="theme-toggle" 
-  (click)="toggleTheme()" 
-  [attr.aria-label]="'Switch to ' + (themeService.getCurrentTheme() === 'light' ? 'dark' : 'light') + ' theme'"
-  title="Toggle theme">
-  
-  <!-- Sun icon for light theme -->
-  <svg 
-    *ngIf="themeService.getCurrentTheme() === 'light'"
-    class="theme-icon sun-icon" 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    stroke-width="2" 
-    stroke-linecap="round" 
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle>
-    <line x1="12" y1="1" x2="12" y2="3"></line>
-    <line x1="12" y1="21" x2="12" y2="23"></line>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-    <line x1="1" y1="12" x2="3" y2="12"></line>
-    <line x1="21" y1="12" x2="23" y2="12"></line>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-  </svg>
+<div class="style-switcher">
+  <!-- Toggle Button -->
+  <button 
+    class="style-switcher-toggle" 
+    (click)="toggleSwitcher()" 
+    [attr.aria-label]="'Open style switcher'"
+    title="Style Switcher">
+    
+    <div class="theme-icon-container">
+      <!-- Sun icon for light theme -->
+      <svg 
+        *ngIf="themeService.getCurrentTheme() === 'light'"
+        class="theme-icon sun-icon" 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
 
-  <!-- Moon icon for dark theme -->
-  <svg 
-    *ngIf="themeService.getCurrentTheme() === 'dark'"
-    class="theme-icon moon-icon" 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    stroke-width="2" 
-    stroke-linecap="round" 
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-  </svg>
-</button>
+      <!-- Moon icon for dark theme -->
+      <svg 
+        *ngIf="themeService.getCurrentTheme() === 'dark'"
+        class="theme-icon moon-icon" 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </div>
+    
+    <span class="theme-label">Style Switcher</span>
+  </button>
+
+  <!-- Style Switcher Panel -->
+  <div class="style-switcher-panel" [class.active]="isSwitcherOpen">
+    <div class="panel-header">
+      <h3 class="panel-title">Style Switcher</h3>
+      <button class="close-btn" (click)="toggleSwitcher()" aria-label="Close style switcher">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="color-palette">
+      <!-- Theme Toggle Buttons -->
+      <div class="theme-section">
+        <h4 class="section-title">Theme</h4>
+        <div class="theme-buttons">
+          <button 
+            class="theme-btn light-theme-btn" 
+            [class.active]="themeService.getCurrentTheme() === 'light'"
+            (click)="setTheme('light')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <span>Light</span>
+          </button>
+          
+          <button 
+            class="theme-btn dark-theme-btn" 
+            [class.active]="themeService.getCurrentTheme() === 'dark'"
+            (click)="setTheme('dark')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span>Dark</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Color Palette -->
+      <div class="colors-section">
+        <h4 class="section-title">Colors</h4>
+        <div class="color-grid">
+          <button class="color-drop purple" (click)="setColor('purple')" title="Purple"></button>
+          <button class="color-drop red" (click)="setColor('red')" title="Red"></button>
+          <button class="color-drop violet" (click)="setColor('violet')" title="Violet"></button>
+          <button class="color-drop blue" (click)="setColor('blue')" title="Blue"></button>
+          <button class="color-drop gold" (click)="setColor('gold')" title="Gold"></button>
+          <button class="color-drop pink" (click)="setColor('pink')" title="Pink"></button>
+          <button class="color-drop lime" (click)="setColor('lime')" title="Lime"></button>
+          <button class="color-drop orange" (click)="setColor('orange')" title="Orange"></button>
+          <button class="color-drop green" (click)="setColor('green')" title="Green"></button>
+          <button class="color-drop yellow" (click)="setColor('yellow')" title="Yellow"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
