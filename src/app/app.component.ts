@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portfolio-angular';
+
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    // Garantir que o tema seja aplicado na inicialização
+    this.themeService.setTheme(this.themeService.getCurrentTheme());
+  }
 }
