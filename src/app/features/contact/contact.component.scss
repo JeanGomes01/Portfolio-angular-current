@@ -314,8 +314,8 @@ $transition: all 0.3s ease;
   padding: 0;
   border: 2px solid var(--primary-color);
   border-radius: 50px;
-  background-color: white;
-  color: #666;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -387,7 +387,7 @@ $transition: all 0.3s ease;
   }
   
   .btn-text {
-    color: #666;
+    color: var(--text-secondary);
     font-weight: 600;
     letter-spacing: 0.5px;
     padding: 1rem 1.5rem;

@@ -99,8 +99,8 @@
 }
 
 .button:first-child {
-  background: white !important;
-  color: #666 !important;
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
   
   // Efeito que preenche o background
   &::before {
@@ -166,8 +166,8 @@
 }
 
 .button--secondary {
-  background: white !important;
-  color: #666 !important;
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
   border-color: var(--primary-color) !important;
   
   // Efeito que preenche o background
@@ -234,7 +234,7 @@
 }
 
 .button__text {
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 600;
   letter-spacing: 0.5px;
   padding: 1rem 1.5rem;
