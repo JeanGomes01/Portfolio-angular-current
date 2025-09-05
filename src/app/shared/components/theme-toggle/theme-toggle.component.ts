@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from '../../../core/services/theme.service';
+import { ThemeService, ColorScheme } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -23,9 +23,7 @@ export class ThemeToggleComponent {
     this.themeService.setTheme(theme);
   }
 
-  setColor(color: string): void {
-    // Implementar mudança de cor do tema
-    console.log('Color selected:', color);
-    // Aqui você pode implementar a lógica para mudar as cores do tema
+  setColor(color: ColorScheme): void {
+    this.themeService.setColor(color);
   }
 }

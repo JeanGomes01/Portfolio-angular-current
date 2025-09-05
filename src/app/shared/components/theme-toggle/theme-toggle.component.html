@@ -102,16 +102,16 @@
       <div class="colors-section">
         <h4 class="section-title">Colors</h4>
         <div class="color-grid">
-          <button class="color-drop purple" (click)="setColor('purple')" title="Purple"></button>
-          <button class="color-drop red" (click)="setColor('red')" title="Red"></button>
-          <button class="color-drop violet" (click)="setColor('violet')" title="Violet"></button>
-          <button class="color-drop blue" (click)="setColor('blue')" title="Blue"></button>
-          <button class="color-drop gold" (click)="setColor('gold')" title="Gold"></button>
-          <button class="color-drop pink" (click)="setColor('pink')" title="Pink"></button>
-          <button class="color-drop lime" (click)="setColor('lime')" title="Lime"></button>
-          <button class="color-drop orange" (click)="setColor('orange')" title="Orange"></button>
-          <button class="color-drop green" (click)="setColor('green')" title="Green"></button>
-          <button class="color-drop yellow" (click)="setColor('yellow')" title="Yellow"></button>
+          <button class="color-drop purple" [class.active]="themeService.getCurrentColor() === 'purple'" (click)="setColor('purple')" title="Purple"></button>
+          <button class="color-drop red" [class.active]="themeService.getCurrentColor() === 'red'" (click)="setColor('red')" title="Red"></button>
+          <button class="color-drop violet" [class.active]="themeService.getCurrentColor() === 'violet'" (click)="setColor('violet')" title="Violet"></button>
+          <button class="color-drop blue" [class.active]="themeService.getCurrentColor() === 'blue'" (click)="setColor('blue')" title="Blue"></button>
+          <button class="color-drop gold" [class.active]="themeService.getCurrentColor() === 'gold'" (click)="setColor('gold')" title="Gold"></button>
+          <button class="color-drop pink" [class.active]="themeService.getCurrentColor() === 'pink'" (click)="setColor('pink')" title="Pink"></button>
+          <button class="color-drop lime" [class.active]="themeService.getCurrentColor() === 'lime'" (click)="setColor('lime')" title="Lime"></button>
+          <button class="color-drop orange" [class.active]="themeService.getCurrentColor() === 'orange'" (click)="setColor('orange')" title="Orange"></button>
+          <button class="color-drop green" [class.active]="themeService.getCurrentColor() === 'green'" (click)="setColor('green')" title="Green"></button>
+          <button class="color-drop yellow" [class.active]="themeService.getCurrentColor() === 'yellow'" (click)="setColor('yellow')" title="Yellow"></button>
         </div>
       </div>
     </div>

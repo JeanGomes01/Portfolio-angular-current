@@ -12,7 +12,8 @@ export class AppComponent implements OnInit {
   constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
-    // Garantir que o tema seja aplicado na inicialização
+    // Garantir que o tema e cores sejam aplicados na inicialização
     this.themeService.setTheme(this.themeService.getCurrentTheme());
+    this.themeService.setColor(this.themeService.getCurrentColor());
   }
 }
