@@ -1,0 +1,23 @@
+.control-buttons {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .control-buttons {
+    top: 1rem;
+    left: 1rem;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-buttons {
+    gap: 0.5rem;
+  }
+}
