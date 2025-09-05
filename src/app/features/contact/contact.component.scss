@@ -329,7 +329,7 @@ $transition: all 0.3s ease;
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 0;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.3);
@@ -344,12 +344,12 @@ $transition: all 0.3s ease;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
     
-    // Preenche o background
+    // Preenche o background da direita para esquerda
     &::before {
       width: 100%;
     }
     
-    // Animação do ícone - move junto com o efeito
+    // Animação do ícone - move junto com o efeito da direita para esquerda
     .btn-icon {
       transform: translateX(calc(-100% + 60px)) scale(1.1);
       background-color: rgba(255, 255, 255, 0.2);
@@ -369,7 +369,7 @@ $transition: all 0.3s ease;
     transform: translateY(-1px);
   }
   
-  // Efeito quando o mouse sai
+  // Efeito quando o mouse sai - retorna da esquerda para direita
   &:not(:hover)::before {
     width: 0;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
