@@ -17,7 +17,7 @@
         </div>
         <div class="info-item">
           <span class="info-label">Technologies:</span>
-          <span class="info-value">{{ project.technologies.join(', ') }}</span>
+          <span class="info-value">{{ project.technologies.join(", ") }}</span>
         </div>
       </div>
       <div class="project-links">
@@ -27,11 +27,15 @@
         </div>
         <div class="info-item">
           <span class="info-label">Preview:</span>
-          <a [href]="project.link" target="_blank" class="info-link">{{ project.link }}</a>
+          <a [href]="project.link" target="_blank" class="info-link">{{
+            project.link
+          }}</a>
         </div>
         <div class="info-item" *ngIf="project.github">
           <span class="info-label">GitHub:</span>
-          <a [href]="project.github" target="_blank" class="info-link">{{ project.github }}</a>
+          <a [href]="project.github" target="_blank" class="info-link">{{
+            project.github
+          }}</a>
         </div>
       </div>
     </div>
@@ -39,7 +43,11 @@
     <!-- Project Preview Section -->
     <div class="project-preview">
       <div class="preview-image">
-        <img [src]="project.image" [alt]="project.title">
+        <img
+          [src]="project.image"
+          [alt]="project.title"
+          (click)="openProjectLink()"
+        />
       </div>
     </div>
   </div>

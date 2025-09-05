@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface Project {
   id: number;
@@ -14,7 +14,7 @@ interface Project {
 @Component({
   selector: 'app-project-modal',
   templateUrl: './project-modal.component.html',
-  styleUrl: './project-modal.component.scss'
+  styleUrl: './project-modal.component.scss',
 })
 export class ProjectModalComponent {
   @Input() project!: Project;
@@ -27,6 +27,12 @@ export class ProjectModalComponent {
   onBackdropClick(event: Event): void {
     if (event.target === event.currentTarget) {
       this.onCloseModal();
+    }
+  }
+
+  openProjectLink(): void {
+    if (this.project?.link) {
+      window.open(this.project.link, '_blank');
     }
   }
 }
