@@ -297,7 +297,7 @@ $transition: all 0.3s ease;
   flex-direction: column;
   gap: 1.5rem;
   margin: 0; // remove centralização
-  padding-right: 4rem; // adiciona padding para evitar sobreposição com o menu
+  padding: 1rem; // adiciona padding para evitar sobreposição com o menu
 }
 
 .form-row {
@@ -566,8 +566,6 @@ $transition: all 0.3s ease;
     order: 1; // "Don't be Shy" primeiro
     width: 100%;
     max-width: 600px;
-    align-items: center;
-    text-align: center;
   }
 
   .right-section {
