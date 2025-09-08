@@ -1,10 +1,16 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private typingInterval: any;
@@ -53,7 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.currentIndex = 0;
     this.displayText = '';
     this.displayTextWithCursor = '';
-    
+
     // Pequeno delay para garantir que o DOM está pronto
     setTimeout(() => {
       this.typeText();
@@ -65,7 +71,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       try {
         if (this.currentIndex < this.text.length) {
           this.displayText = this.text.substring(0, this.currentIndex + 1);
-          this.displayTextWithCursor = this.text.substring(0, this.currentIndex + 1) + '|';
+          this.displayTextWithCursor =
+            this.text.substring(0, this.currentIndex + 1) + '|';
           this.currentIndex++;
         } else {
           clearInterval(this.typingInterval);
@@ -87,7 +94,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       try {
         if (this.currentIndex > 0) {
           this.displayText = this.text.substring(0, this.currentIndex - 1);
-          this.displayTextWithCursor = this.text.substring(0, this.currentIndex - 1) + '|';
+          this.displayTextWithCursor =
+            this.text.substring(0, this.currentIndex - 1) + '|';
           this.currentIndex--;
         } else {
           clearInterval(this.erasingInterval);
@@ -102,5 +110,24 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.clearIntervals();
       }
     }, 40); // Velocidade de apagamento: 40ms por caractere (mais rápido)
+  }
+
+  public isDownloading = false;
+  public downloadMessage = 'Download CV';
+
+  onDownloadClick() {
+    this.isDownloading = true;
+    this.downloadMessage = 'Baixando...';
+
+    // Simula o tempo de download (1.5s)
+    setTimeout(() => {
+      this.isDownloading = false;
+      this.downloadMessage = 'Download concluído ✅';
+
+      // Volta para o texto original depois de 2s
+      setTimeout(() => {
+        this.downloadMessage = 'Download CV';
+      }, 2000);
+    }, 1500);
   }
 }

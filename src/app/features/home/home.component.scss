@@ -30,7 +30,7 @@
 .home-title {
   margin-bottom: 2.5rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,12 +38,12 @@
 }
 
 .home-title p {
-  font-size: 3.0rem;
+  font-size: 3rem;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 1rem;
   line-height: 1.1;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .home-title span {
@@ -52,7 +52,7 @@
   color: var(--primary-color, #007bff);
   display: inline-block;
   line-height: 1.2;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 420px;
   min-height: 3rem;
   position: relative;
@@ -61,8 +61,6 @@
   margin: 0 auto;
   overflow: hidden;
 }
-
-
 
 .home-description {
   font-size: 1.125rem;
@@ -101,10 +99,10 @@
 .button:first-child {
   background: var(--bg-secondary) !important;
   color: var(--text-secondary) !important;
-  
+
   // Efeito que preenche o background
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -115,49 +113,49 @@
     z-index: 1;
     border-radius: 50px;
   }
-  
+
   &:hover {
     background: var(--primary-color) !important;
     color: white !important;
     transform: translateY(-3px) !important;
     box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4) !important;
-    
+
     // Preenche o background da direita para esquerda
     &::before {
       width: 100%;
     }
-    
+
     // Animação do ícone - move junto com o efeito da direita para esquerda
     .button__icon {
       transform: translateX(calc(-100% + 60px)) scale(1.1);
       background-color: rgba(255, 255, 255, 0.2);
-      
+
       svg {
         transform: rotate(15deg);
         color: white;
       }
     }
-    
+
     .button__text {
       color: white;
     }
   }
-  
+
   &:active {
     transform: translateY(-1px) !important;
   }
-  
+
   // Efeito quando o mouse sai - retorna da esquerda para direita
   &:not(:hover)::before {
     width: 0;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   // Ícone retorna à posição original
   &:not(:hover) .button__icon {
     transform: translateX(0) scale(1);
     background-color: var(--primary-color);
-    
+
     svg {
       transform: rotate(0deg);
       color: white;
@@ -169,10 +167,10 @@
   background: var(--bg-secondary) !important;
   color: var(--text-secondary) !important;
   border-color: var(--primary-color) !important;
-  
+
   // Efeito que preenche o background
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -183,49 +181,49 @@
     z-index: 1;
     border-radius: 50px;
   }
-  
+
   &:hover {
     background: var(--primary-color) !important;
     color: white !important;
     transform: translateY(-3px) !important;
     box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4) !important;
-    
+
     // Preenche o background da direita para esquerda
     &::before {
       width: 100%;
     }
-    
+
     // Animação do ícone - move junto com o efeito da direita para esquerda
     .button__icon {
       transform: translateX(calc(-100% + 60px)) scale(1.1);
       background-color: rgba(255, 255, 255, 0.2);
-      
+
       svg {
         transform: rotate(15deg);
         color: white;
       }
     }
-    
+
     .button__text {
       color: white;
     }
   }
-  
+
   &:active {
     transform: translateY(-1px) !important;
   }
-  
+
   // Efeito quando o mouse sai - retorna da esquerda para direita
   &:not(:hover)::before {
     width: 0;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   // Ícone retorna à posição original
   &:not(:hover) .button__icon {
     transform: translateX(0) scale(1);
     background-color: var(--primary-color);
-    
+
     svg {
       transform: rotate(0deg);
       color: white;
@@ -254,7 +252,7 @@
   position: relative;
   z-index: 2;
   margin: 2px;
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -334,26 +332,26 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .home-title {
     margin-bottom: 2rem;
   }
-  
+
   .home-title p {
     font-size: 3rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .home-title span {
     font-size: 2.25rem;
     min-height: 2.5rem;
     width: 380px;
   }
-  
+
   .home-description {
     margin-bottom: 3rem;
   }
-  
+
   .image-container {
     width: 350px;
     height: 350px;
@@ -367,47 +365,47 @@
     padding: 2rem;
     gap: 3rem;
   }
-  
+
   .home-data {
     order: 2;
     max-width: 100%;
     text-align: center;
   }
-  
+
   .home-image {
     order: 1;
   }
-  
+
   .home-title {
     margin-bottom: 1.5rem;
   }
-  
+
   .home-title p {
     font-size: 2.5rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .home-title span {
     font-size: 2rem;
     min-height: 2.25rem;
     width: 320px;
   }
-  
+
   .home-description {
     font-size: 1rem;
     margin-bottom: 2.5rem;
   }
-  
+
   .home-buttons {
     justify-content: center;
     gap: 1.25rem;
   }
-  
+
   .image-container {
     width: 300px;
     height: 300px;
   }
-  
+
   .color-block {
     display: none;
   }
@@ -418,35 +416,55 @@
     gap: 2rem;
     padding: 1.5rem;
   }
-  
+
   .home-title {
     margin-bottom: 1.25rem;
   }
-  
+
   .home-title p {
     font-size: 2.25rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .home-title span {
     font-size: 1.75rem;
     min-height: 2rem;
     width: 280px;
   }
-  
+
   .home-description {
     margin-bottom: 2rem;
   }
-  
+
   .home-buttons {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
+
   .button {
     width: 100%;
     max-width: 280px;
     justify-content: center;
+  }
+}
+
+.spinner {
+  border: 3px solid #ccc;
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.6s linear infinite;
+  display: block;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
