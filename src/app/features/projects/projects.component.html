@@ -4,21 +4,39 @@
     <span class="title-highlight">Portfolio</span>
   </h1>
   
-  <div class="projects-grid">
-    <!-- Project Cards -->
+  <div class="projects-grid" [class.expanded]="showAllProjects">
     <div 
-      *ngFor="let project of projects" 
+      *ngFor="let project of displayedProjects; let i = index" 
       class="project-card" 
       (click)="openModal(project)"
     >
-      <div class="project-image">
-        <img [src]="project.image" [alt]="project.title">
+      <div class="project-content">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title">
+        </div>
+        <h4 class="project-title">{{ project.title }}</h4>
       </div>
-      <h4 class="project-title">{{ project.title }}</h4>
+    </div>
+    
+    <div 
+      *ngIf="!showAllProjects" 
+      class="expand-button-small" 
+      (click)="toggleProjects()"
+    >
+      <span class="expand-text-small">+{{ remainingProjectsCount }}</span>
+    </div>
+    
+    <div 
+      *ngIf="showAllProjects" 
+      class="project-card collapse-button" 
+      (click)="toggleProjects()"
+    >
+      <div class="collapse-card">
+        <div class="collapse-icon">−</div>
+        <div class="collapse-text">Ver menos</div>
+      </div>
     </div>
   </div>
-
-  <!-- Project Modal -->
   <app-project-modal 
     *ngIf="showModal && selectedProject"
     [project]="selectedProject"

@@ -9,47 +9,29 @@ import { Project } from './projects.interface';
 export class ProjectsComponent {
   selectedProject: Project | null = null;
   showModal = false;
+  showAllProjects = false;
 
   projects: Project[] = [
     {
-      id: 1,
-      title: 'Previous Portfolio',
+      id: 7,
+      title: 'Dashboard Sales',
       description:
-        'Um portfólio anterior desenvolvido para mostrar meus projetos e habilidades como desenvolvedor. Interface moderna e responsiva com animações suaves.',
-      image: 'assets/project-1.png',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
-      link: 'https://dev-jean-gomes.netlify.app/',
-      github: 'https://github.com/jean-gomes/portfolio-anterior',
+        'Dashboard de vendas interativo desenvolvido em Angular 18 com autenticação de usuários, sidebar responsiva e gráficos de vendas usando Chart.js. Demonstra conceitos de Reactive Forms, serviços com RxJS, componentes standalone, e integração de Chart.js puro para visualização de dados.',
+      image: 'assets/project-7.png',
+      technologies: ['Angular 18', 'TypeScript', 'Chart.js', 'RxJS', 'Reactive Forms'],
+      link: 'https://dashboard-sales-omega.vercel.app/login',
+      github: 'https://github.com/jean-gomes/dashboard-sales-omega',
+      client: 'Sales Solutions',
     },
     {
-      id: 2,
-      title: 'Fantastic Animals Blog',
+      id: 6,
+      title: 'Case RIO Analytics Dashboard',
       description:
-        'Blog sobre animais fantásticos com sistema de posts, categorias e busca. Desenvolvido com foco em performance e SEO.',
-      image: 'assets/project-2.png',
-      technologies: ['React', 'TypeScript', 'Next.js', 'Styled Components'],
-      link: 'https://animais-fantasticos-js.vercel.app/',
-      github: 'https://github.com/jean-gomes/fantastic-animals-blog',
-    },
-    {
-      id: 3,
-      title: 'Landing Page Clinic',
-      description:
-        'Landing page para clínica médica com design moderno e responsivo. Inclui seções de serviços, sobre a clínica e formulário de contato.',
-      image: 'assets/project-3.png',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-      link: 'https://html-tailwind-responsive.vercel.app/',
-      client: 'Clínica Médica São Paulo',
-    },
-    {
-      id: 4,
-      title: 'My To-Do List',
-      description:
-        'Aplicação de lista de tarefas com funcionalidades de adicionar, editar, excluir e marcar como concluída. Dados persistidos no localStorage.',
-      image: 'assets/project-4.png',
-      technologies: ['React', 'TypeScript', 'CSS Modules', 'LocalStorage'],
-      link: 'https://to-do-list-angular-phi.vercel.app/',
-      github: 'https://github.com/jean-gomes/todo-list-app',
+        'Dashboard de analytics para análise de dados com gráficos interativos e relatórios em tempo real. Desenvolvido para case de estudo.',
+      image: 'assets/project-6.png',
+      technologies: ['Angular', 'TypeScript', 'Chart.js', 'Bootstrap'],
+      link: 'https://rio-analytics-dashboard.vercel.app',
+      github: 'https://github.com/jean-gomes/rio-analytics-dashboard',
     },
     {
       id: 5,
@@ -63,14 +45,44 @@ export class ProjectsComponent {
       client: 'Rocketseat',
     },
     {
-      id: 6,
-      title: 'Case RIO Analytics Dashboard',
+      id: 4,
+      title: 'My To-Do List',
       description:
-        'Dashboard de analytics para análise de dados com gráficos interativos e relatórios em tempo real. Desenvolvido para case de estudo.',
-      image: 'assets/project-6.png',
-      technologies: ['Angular', 'TypeScript', 'Chart.js', 'Bootstrap'],
-      link: 'https://rio-analytics-dashboard.vercel.app',
-      github: 'https://github.com/jean-gomes/rio-analytics-dashboard',
+        'Aplicação de lista de tarefas com funcionalidades de adicionar, editar, excluir e marcar como concluída. Dados persistidos no localStorage.',
+      image: 'assets/project-4.png',
+      technologies: ['React', 'TypeScript', 'CSS Modules', 'LocalStorage'],
+      link: 'https://to-do-list-angular-phi.vercel.app/',
+      github: 'https://github.com/jean-gomes/todo-list-app',
+    },
+    {
+      id: 3,
+      title: 'Landing Page Clinic',
+      description:
+        'Landing page para clínica médica com design moderno e responsivo. Inclui seções de serviços, sobre a clínica e formulário de contato.',
+      image: 'assets/project-3.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+      link: 'https://html-tailwind-responsive.vercel.app/',
+      client: 'Clínica Médica São Paulo',
+    },
+    {
+      id: 2,
+      title: 'Fantastic Animals Blog',
+      description:
+        'Blog sobre animais fantásticos com sistema de posts, categorias e busca. Desenvolvido com foco em performance e SEO.',
+      image: 'assets/project-2.png',
+      technologies: ['React', 'TypeScript', 'Next.js', 'Styled Components'],
+      link: 'https://animais-fantasticos-js.vercel.app/',
+      github: 'https://github.com/jean-gomes/fantastic-animals-blog',
+    },
+    {
+      id: 1,
+      title: 'Previous Portfolio',
+      description:
+        'Um portfólio anterior desenvolvido para mostrar meus projetos e habilidades como desenvolvedor. Interface moderna e responsiva com animações suaves.',
+      image: 'assets/project-1.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
+      link: 'https://dev-jean-gomes.netlify.app/',
+      github: 'https://github.com/jean-gomes/portfolio-anterior',
     },
   ];
 
@@ -82,5 +94,17 @@ export class ProjectsComponent {
   closeModal(): void {
     this.showModal = false;
     this.selectedProject = null;
+  }
+
+  get displayedProjects(): Project[] {
+    return this.showAllProjects ? this.projects : this.projects.slice(0, 6);
+  }
+
+  toggleProjects(): void {
+    this.showAllProjects = !this.showAllProjects;
+  }
+
+  get remainingProjectsCount(): number {
+    return this.projects.length - 6;
   }
 }
