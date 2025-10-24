@@ -13,12 +13,29 @@ export class ProjectsComponent {
 
   projects: Project[] = [
     {
+      id: 8,
+      title: 'Angular To-do-list v2',
+      description:
+        'Aplicação To-do List desenvolvida em Angular, com armazenamento local via localStorage, interface responsiva em SCSS e funcionalidades completas de CRUD para gerenciamento de tarefas',
+      image: 'assets/project-8.png',
+      technologies: ['Angular 20', 'TypeScript', 'SweetAlert2', 'RxJS'],
+      link: 'https://angular-to-do-list-taskly.vercel.app/',
+      github: 'https://github.com/JeanGomes01/Angular-to-do-list',
+    },
+
+    {
       id: 7,
       title: 'Dashboard Sales',
       description:
         'Dashboard de vendas interativo desenvolvido em Angular 18 com autenticação de usuários, sidebar responsiva e gráficos de vendas usando Chart.js. Demonstra conceitos de Reactive Forms, serviços com RxJS, componentes standalone, e integração de Chart.js puro para visualização de dados.',
       image: 'assets/project-7.png',
-      technologies: ['Angular 18', 'TypeScript', 'Chart.js', 'RxJS', 'Reactive Forms'],
+      technologies: [
+        'Angular 18',
+        'TypeScript',
+        'Chart.js',
+        'RxJS',
+        'Reactive Forms',
+      ],
       link: 'https://dashboard-sales-omega.vercel.app/login',
       github: 'https://github.com/jean-gomes/dashboard-sales-omega',
       client: 'Sales Solutions',
