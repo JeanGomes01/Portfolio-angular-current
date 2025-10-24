@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   private currentIndex = 0;
   private isTyping = true;
 
-  // Texto fixo para digitação
   private readonly text = 'Software Developer';
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -29,9 +28,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Só executa no browser e com delay para evitar problemas de SSR
+    
     if (this.isBrowser) {
-      // Delay para garantir que a página carregou completamente
+      
       setTimeout(() => {
         this.startTypingEffect();
       }, 2000);
@@ -54,13 +53,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private startTypingEffect() {
-    // Limpa qualquer intervalo existente
+    
     this.clearIntervals();
     this.currentIndex = 0;
     this.displayText = '';
     this.displayTextWithCursor = '';
 
-    // Pequeno delay para garantir que o DOM está pronto
+   
     setTimeout(() => {
       this.typeText();
     }, 100);
@@ -77,7 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         } else {
           clearInterval(this.typingInterval);
           this.typingInterval = null;
-          // Aguarda 2 segundos antes de começar a apagar
+         
           setTimeout(() => {
             this.eraseText();
           }, 2000);
@@ -86,7 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.error('Error in typing:', error);
         this.clearIntervals();
       }
-    }, 80); // Velocidade de digitação: 80ms por caractere
+    }, 80);
   }
 
   private eraseText() {
@@ -100,7 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         } else {
           clearInterval(this.erasingInterval);
           this.erasingInterval = null;
-          // Aguarda 500ms antes de começar a digitar novamente
+          
           setTimeout(() => {
             this.typeText();
           }, 500);
@@ -109,7 +108,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.error('Error in erasing:', error);
         this.clearIntervals();
       }
-    }, 40); // Velocidade de apagamento: 40ms por caractere (mais rápido)
+    }, 40); 
   }
 
   public isDownloading = false;
@@ -119,12 +118,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.isDownloading = true;
     this.downloadMessage = 'Baixando...';
 
-    // Simula o tempo de download (1.5s)
+    
     setTimeout(() => {
       this.isDownloading = false;
       this.downloadMessage = 'Download concluído ✅';
 
-      // Volta para o texto original depois de 2s
+      
       setTimeout(() => {
         this.downloadMessage = 'Download CV';
       }, 2000);
